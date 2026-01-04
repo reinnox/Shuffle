@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Login | Flashcards AI</title>
-<link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Shuffle Flashcards</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<h2>Login / Signup</h2>
-<input id="email" placeholder="Email" />
-<input id="password" type="password" placeholder="Password" />
-<button onclick="login()">Login / Signup</button>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex items-center justify-center h-screen">
+<div class="w-full max-w-md p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Shuffle Flashcards</h2>
+  <input id="email" placeholder="Email" class="w-full p-2 mb-3 rounded border" />
+  <input id="password" type="password" placeholder="Password" class="w-full p-2 mb-3 rounded border" />
+  <button onclick="login()" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login / Signup</button>
+</div>
 <script src="auth.js"></script>
 </body>
 </html>
