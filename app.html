@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Flashcards AI App</title>
-<link rel="stylesheet" href="styles.css" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shuffle Flashcards App</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.3.1/dist/tesseract.min.js"></script>
 <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
 </head>
-<body>
-<h1>📸 Image → Flashcards</h1>
-<select id="lang" onchange="setLang(this.value)">
-  <option value="en">English</option>
-  <option value="ja">日本語</option>
-  <option value="my">မြန်မာ</option>
-</select>
-<input type="file" id="image" />
-<button onclick="runOCR()">Run OCR</button>
-<div id="cards"></div>
-<button onclick="makeExam()">Make Exam</button>
-<div id="exam"></div>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <header class="flex justify-between p-4 bg-gray-200 dark:bg-gray-800">
+    <h1 class="text-xl font-bold">Shuffle Flashcards</h1>
+    <button onclick="toggleTheme()" class="p-1 border rounded">Toggle Theme</button>
+  </header>
+  <main class="p-4">
+    <section class="mb-6">
+      <h2 class="font-bold text-lg mb-2">Upload Image for Flashcards</h2>
+      <input type="file" id="image" accept="image/*" class="mb-2" />
+      <button onclick="runOCR()" class="p-2 bg-green-500 text-white rounded">Convert to Flashcards</button>
+    </section>
 
-<h2>🤖 David AI Tutor</h2>
-<input id="ask" placeholder="Ask David" />
-<button onclick="askDavid()">Ask</button>
-<div id="chat"></div>
+    <section class="mb-6">
+      <h2 class="font-bold text-lg mb-2">Flashcards</h2>
+      <div id="cards" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
 
-<script src="i18n.js"></script>
-<script src="ocr.js"></script>
-<script src="flashcards.js"></script>
-<script src="exam.js"></script>
-<script src="ai.js"></script>
+    <section class="mb-6">
+      <h2 class="font-bold text-lg mb-2">Exam</h2>
+      <button onclick="makeExam()" class="p-2 bg-yellow-500 text-white rounded mb-2">Generate Exam</button>
+      <div id="exam" class="space-y-2"></div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="font-bold text-lg mb-2">AI Tutor - David</h2>
+      <input id="ask" placeholder="Ask David" class="p-2 mb-2 w-full border rounded" />
+      <button onclick="askDavid()" class="p-2 bg-purple-500 text-white rounded mb-2">Ask</button>
+      <div id="chat" class="border p-2 rounded max-h-64 overflow-y-auto bg-gray-50 dark:bg-gray-700"></div>
+    </section>
+
+    <section>
+      <h2 class="font-bold text-lg mb-2">Profile</h2>
+      <div id="profile" class="p-2 border rounded bg-gray-50 dark:bg-gray-700"></div>
+    </section>
+  </main>
+  <script src="auth.js"></script>
+  <script src="ocr.js"></script>
+  <script src="flashcards.js"></script>
+  <script src="exam.js"></script>
+  <script src="ai.js"></script>
+  <script src="i18n.js"></script>
+  <script src="theme.js"></script>
 </body>
 </html>
