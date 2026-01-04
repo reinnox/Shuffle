@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Flashcards AI App</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
+</head>
+<body>
+<h1>📸 Image → Flashcards</h1>
+<select id="lang" onchange="setLang(this.value)">
+  <option value="en">English</option>
+  <option value="ja">日本語</option>
+  <option value="my">မြန်မာ</option>
+</select>
+<input type="file" id="image" />
+<button onclick="runOCR()">Run OCR</button>
+<div id="cards"></div>
+<button onclick="makeExam()">Make Exam</button>
+<div id="exam"></div>
+
+<h2>🤖 David AI Tutor</h2>
+<input id="ask" placeholder="Ask David" />
+<button onclick="askDavid()">Ask</button>
+<div id="chat"></div>
+
+<script src="i18n.js"></script>
+<script src="ocr.js"></script>
+<script src="flashcards.js"></script>
+<script src="exam.js"></script>
+<script src="ai.js"></script>
+</body>
+</html>
